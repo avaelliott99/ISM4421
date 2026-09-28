@@ -1,0 +1,25 @@
+# Netlify configuration for FAU Owl Weather.
+# This is a static site: no build step, Netlify serves the repo root as-is.
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self)"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://api.open-meteo.com https://geocoding-api.open-meteo.com"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Any unknown path falls back to the app.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

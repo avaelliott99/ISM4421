@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAU Owl Weather</title>
+  <meta name="description" content="Live weather for Florida Atlantic University in Boca Raton and anywhere else, powered by Open-Meteo." />
+  <meta name="theme-color" content="#003366" />
+  <link rel="icon" type="image/svg+xml" href="assets/fau-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="FAU Owl Weather home">
+        <img src="assets/fau-logo.svg" alt="FAU logo" class="brand-logo" width="56" height="56" />
+        <span class="brand-text">
+          <span class="brand-title">Owl Weather</span>
+          <span class="brand-sub">Florida Atlantic University</span>
+        </span>
+      </a>
+      <div class="unit-toggle" role="group" aria-label="Temperature units">
+        <button type="button" data-unit="fahrenheit" class="active" aria-pressed="true">°F</button>
+        <button type="button" data-unit="celsius" aria-pressed="false">°C</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-bar" aria-label="Search for a location">
+      <form id="search-form" autocomplete="off">
+        <label for="search-input" class="sr-only">City name</label>
+        <input id="search-input" type="search" placeholder="Search a city (e.g. Jupiter, Miami, Orlando)" />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div class="search-actions">
+        <button type="button" id="btn-home" class="btn btn-ghost">🦉 FAU Boca Raton</button>
+        <button type="button" id="btn-locate" class="btn btn-ghost">📍 My location</button>
+      </div>
+      <ul id="search-results" class="search-results" hidden></ul>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="current" class="card current" hidden>
+      <div class="current-main">
+        <div>
+          <h1 id="place-name" class="place-name">Boca Raton, FL</h1>
+          <p id="place-meta" class="place-meta"></p>
+          <div class="current-temp-row">
+            <span id="current-icon" class="current-icon" aria-hidden="true"></span>
+            <span id="current-temp" class="current-temp"></span>
+          </div>
+          <p id="current-desc" class="current-desc"></p>
+          <p id="current-hilo" class="current-hilo"></p>
+        </div>
+      </div>
+      <dl class="stats">
+        <div><dt>Feels like</dt><dd id="stat-feels"></dd></div>
+        <div><dt>Humidity</dt><dd id="stat-humidity"></dd></div>
+        <div><dt>Wind</dt><dd id="stat-wind"></dd></div>
+        <div><dt>Gusts</dt><dd id="stat-gusts"></dd></div>
+        <div><dt>UV index</dt><dd id="stat-uv"></dd></div>
+        <div><dt>Pressure</dt><dd id="stat-pressure"></dd></div>
+        <div><dt>Sunrise</dt><dd id="stat-sunrise"></dd></div>
+        <div><dt>Sunset</dt><dd id="stat-sunset"></dd></div>
+      </dl>
+    </section>
+
+    <section id="hourly-section" class="card" hidden>
+      <h2 class="section-title">Next 24 hours</h2>
+      <div id="hourly" class="hourly" tabindex="0" aria-label="Hourly forecast, scrollable"></div>
+    </section>
+
+    <section id="daily-section" class="card" hidden>
+      <h2 class="section-title">7-day forecast</h2>
+      <ul id="daily" class="daily"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Go Owls!</strong> Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (CC BY 4.0).</p>
+      <p class="fine">Student project for ISM 4421. Not an official Florida Atlantic University website.</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

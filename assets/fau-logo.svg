@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="FAU">
+  <!-- Placeholder FAU mark in official FAU Blue and Red. Replace this file with the official FAU logo if you have it. -->
+  <circle cx="60" cy="60" r="58" fill="#003366" stroke="#CC0000" stroke-width="4"/>
+  <!-- Owl ears / brow -->
+  <path d="M30 34 L42 46 L60 40 L78 46 L90 34 L86 54 L34 54 Z" fill="#CC0000"/>
+  <!-- Owl eyes -->
+  <circle cx="45" cy="56" r="9" fill="#ffffff"/>
+  <circle cx="75" cy="56" r="9" fill="#ffffff"/>
+  <circle cx="46" cy="57" r="4" fill="#003366"/>
+  <circle cx="74" cy="57" r="4" fill="#003366"/>
+  <path d="M56 62 L60 70 L64 62 Z" fill="#CCCCCC"/>
+  <text x="60" y="97" text-anchor="middle" font-family="Montserrat, Arial Black, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="2" fill="#ffffff">FAU</text>
+</svg>
